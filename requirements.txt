@@ -1,0 +1,18 @@
+# ─── 核心依赖 ─────────────────────────────────────────────
+# Anthropic Claude API（用于生成回答）
+anthropic>=0.40.0
+
+# 本地向量数据库（存储和检索文本块向量）
+chromadb>=0.5.0
+
+# 环境变量加载（读取 .env 文件）
+python-dotenv>=1.0.0
+
+# ─── Embedding 模型 ───────────────────────────────────────
+# 【默认】本地模式（EMBEDDING_MODE=local）：支持中文，完全免费，首次需下载约400MB模型
+sentence-transformers>=3.0.0
+
+# ─── 可选依赖（不需要时无需安装）────────────────────────────
+# OpenAI Embedding 模式（仅 EMBEDDING_MODE=openai 时需要）
+# 取消注释并在 .env 中设置 OPENAI_API_KEY 后方可使用
+# openai>=1.0.0

@@ -1,0 +1,135 @@
+[
+  {
+    "id": "K01",
+    "question": "信用卡逾期之后利息是怎么计算的？",
+    "expected_intent": "知识型",
+    "expected_source_doc": "信用卡逾期处理规定",
+    "expected_answer_summary": "未足额缴纳最低还款额时，自账单日起对全部应还款项按日利率0.05%（年化18%）计收利息；若已还清最低还款额但未还清全部欠款，仅对未还清部分计息并享受免息期。"
+  },
+  {
+    "id": "K02",
+    "question": "信用卡逾期了，滞纳金是怎么收的？",
+    "expected_intent": "知识型",
+    "expected_source_doc": "信用卡逾期处理规定",
+    "expected_answer_summary": "滞纳金按逾期未还最低还款额部分的5%收取，最低10元，最高不超过500元，同一账期只收取一次。"
+  },
+  {
+    "id": "K03",
+    "question": "信用卡逾期1到30天银行会怎么处理？",
+    "expected_intent": "知识型",
+    "expected_source_doc": "信用卡逾期处理规定",
+    "expected_answer_summary": "M1轻度逾期（1-30天）：第1天系统短信提醒，第3天邮件和APP推送，第7天客服电话提醒，第15天书面催收通知，第25天可联系紧急联系人提醒（只告知欠款事实，不透露金额）。"
+  },
+  {
+    "id": "K04",
+    "question": "信用卡欠款超过180天不还会怎样？",
+    "expected_intent": "知识型",
+    "expected_source_doc": "信用卡逾期处理规定",
+    "expected_answer_summary": "超过180天的账款列为呆账，银行启动核销程序按不良资产处理。核销不影响银行继续追偿权利，仍可通过法律途径追收欠款。"
+  },
+  {
+    "id": "K05",
+    "question": "申请消费贷款需要满足哪些基本条件？",
+    "expected_intent": "知识型",
+    "expected_source_doc": "个人贷款产品说明",
+    "expected_answer_summary": "申请消费贷款需满足：年龄22-65周岁、有稳定收入且月收入不低于3000元、信用记录良好（近2年无连续3期以上逾期）、提供有效身份证明及收入证明材料。"
+  },
+  {
+    "id": "K06",
+    "question": "个人贷款可以提前还款吗？需要收违约金吗？",
+    "expected_intent": "知识型",
+    "expected_source_doc": "个人贷款产品说明",
+    "expected_answer_summary": "可以申请提前部分或全部还款，需提前5个工作日申请。贷款发放后6个月内提前还款收取剩余本金1%的违约金；超过6个月提前还款不收违约金。"
+  },
+  {
+    "id": "K07",
+    "question": "理财产品R3风险等级是什么意思？适合哪类投资者？",
+    "expected_intent": "知识型",
+    "expected_source_doc": "理财产品风险揭示书",
+    "expected_answer_summary": "R3为中等风险，产品存在一定本金损失风险，预期收益相对较高，可投资债券及部分权益类资产，适合平衡型投资者。"
+  },
+  {
+    "id": "K08",
+    "question": "哪些客户不能购买高风险理财产品？",
+    "expected_intent": "知识型",
+    "expected_source_doc": "理财产品风险揭示书",
+    "expected_answer_summary": "风险测评结果为保守型（C1）的客户、年龄超过70周岁且无法提供完全民事行为能力证明的客户、首次购买且金额超过100万元的客户不得购买R4及以上理财产品。"
+  },
+  {
+    "id": "K09",
+    "question": "征信报告短期内被多家机构查询，会影响贷款申请吗？",
+    "expected_intent": "知识型",
+    "expected_source_doc": "个人征信查询规定",
+    "expected_answer_summary": "30日内征信被查询超过3次存在一定风险，超过6次原则上不予受理新信贷申请。银行可将短期内被多次查询的客户列为高风险客户并拒绝申请。"
+  },
+  {
+    "id": "K10",
+    "question": "发现自己的征信报告有错误，申请异议之后多久能有结果？",
+    "expected_intent": "知识型",
+    "expected_source_doc": "个人征信查询规定",
+    "expected_answer_summary": "银行须在收到异议申请后2个工作日内确认收到，20个工作日内完成核查并书面告知结果；情况复杂可延至45个工作日，需书面说明原因。"
+  },
+  {
+    "id": "K11",
+    "question": "客户向银行投诉，普通投诉一般多少个工作日内会回复？",
+    "expected_intent": "知识型",
+    "expected_source_doc": "客户投诉处理流程",
+    "expected_answer_summary": "普通投诉（需调查核实的）须在7个工作日内处理并回复；需跨部门协作的可延至15个工作日，但须提前告知客户。简单投诉可当场或1个工作日内解决。"
+  },
+  {
+    "id": "K12",
+    "question": "什么情况下客户投诉会被升级到上级部门处理？",
+    "expected_intent": "知识型",
+    "expected_source_doc": "客户投诉处理流程",
+    "expected_answer_summary": "以下情形自动升级：客户对初次处理不满意、投诉金额超过10万元、涉及3人以上群体性投诉、媒体或监管部门已介入、内容涉及严重违规违法嫌疑。"
+  },
+  {
+    "id": "Q01",
+    "question": "帮我查一下C001客户的账户情况",
+    "expected_intent": "查询型",
+    "expected_source_doc": null,
+    "expected_answer_summary": "C001客户张伟，消费贷款，额度50万，已用12万，可用38万，无逾期，信用评分720。"
+  },
+  {
+    "id": "Q02",
+    "question": "C002这个客户现在逾期了多少天了？",
+    "expected_intent": "查询型",
+    "expected_source_doc": null,
+    "expected_answer_summary": "C002客户李娜，信用卡，逾期45天（M2中度逾期），信用评分580，已用满20万额度。"
+  },
+  {
+    "id": "Q03",
+    "question": "查询一下C003客户目前的可用贷款额度",
+    "expected_intent": "查询型",
+    "expected_source_doc": null,
+    "expected_answer_summary": "C003客户王建国，经营贷款，总额度100万，已用35万，可用65万，无逾期。"
+  },
+  {
+    "id": "O01",
+    "question": "C002客户逾期了45天，帮我提交一个逾期罚息减免申请",
+    "expected_intent": "操作型",
+    "expected_source_doc": null,
+    "expected_answer_summary": "应生成一张包含申请单号、操作类型（逾期减免）、客户信息（C002/李娜）的待审批申请单，状态为待人工审批。"
+  },
+  {
+    "id": "O02",
+    "question": "C004信用卡额度快用完了，她申请提高额度，请帮我提交申请",
+    "expected_intent": "操作型",
+    "expected_source_doc": null,
+    "expected_answer_summary": "应生成一张包含申请单号、操作类型（信用卡提额）、客户信息（C004/陈小燕）的待审批申请单，状态为待人工审批。"
+  },
+  {
+    "id": "A01",
+    "question": "C002客户最近逾期了，我想了解一下她现在账户的具体状态，另外逾期处理的规定是什么",
+    "expected_intent": "查询型",
+    "expected_source_doc": null,
+    "expected_answer_summary": "此为混合意图题（查询型+知识型）。合理判断为查询型（先查账户）或知识型（先答规定）均可接受；关键看系统能否识别出包含客户ID C002这一查询线索。"
+  },
+  {
+    "id": "A02",
+    "question": "我行最近给好几个客户做了征信查询，有客户反映担心影响贷款审批，请问按规定我们应该怎么处理这种情况？",
+    "expected_intent": "知识型",
+    "expected_source_doc": "个人征信查询规定",
+    "expected_answer_summary": "此为易误判题。问法中含【怎么处理】易被误判为操作型，但实质是询问征信查询频率的合规规定（第6条），正确意图为知识型，答案应包含30日内查询次数限制。"
+  }
+]

@@ -266,3 +266,66 @@ A: qwen2.5:7b 对纯知识型问题有时会直接回答而不调用工具（即
 
 **Q: 想用其他 Ollama 模型路由**
 A: `ollama pull <model>` 后，`ROUTER_MODEL=<model> python src/agent_main.py`。推荐 tool_calling 场景用 `gemma4-hermes:latest`（本机已有）。
+
+---
+
+## 自动化评估系统
+
+### 运行方式
+
+```bash
+python run_eval.py                  # 运行全部三个评估模块
+python run_eval.py --no-quality     # 跳过 LLM-as-judge（节省 API 费用）
+python run_eval.py --top-k 5        # 自定义检索 top-k
+
+# 结果文件
+eval_raw_results.json   # 原始评估数据（供进一步分析）
+report.md               # 格式化评估报告（含 Markdown 表格）
+```
+
+> `eval_answer_quality` 和报告的自动结论需要有效的 `ANTHROPIC_API_KEY`；
+> 路由准确率和检索 Recall@k 只用本地 Ollama，无需 API Key。
+
+### 三个评估指标的关系
+
+```
+用户问题
+   │
+   ▼ 模块A：意图路由准确率（eval_routing）
+   │   ← 路由错了，后续必然跑偏。应优先保证此模块达标。
+   │
+   ├── 知识型 → 模块B：RAG 检索 Recall@k（eval_retrieval）
+   │             ← 路由对了但检索漏掉，LLM 无法给出正确答案。
+   │
+   └── (检索命中后) → 模块C：回答质量（eval_answer_quality）
+                       ← 前两步都对，才有意义评估生成质量。
+```
+
+**三个模块应分开看，不要混为一谈：**
+- 路由误判 → 优先改 `router.py` 的 prompt
+- 检索未命中 → 考虑缩小 `CHUNK_SIZE` 或换更强的 `EMBEDDING_MODE`
+- 生成质量低 → 调整 `generate.py` 的 prompt 模板（引用格式要求、防幻觉约束）
+
+### LLM-as-judge 原理、优点与局限性
+
+**原理**：把"用户问题 + 标准答案摘要 + AI 实际回答"打包发给一个强 LLM（如 Claude），让它按维度打分（准确性 / 引用 / 幻觉），返回结构化 JSON 分数和理由。相比 BLEU/ROUGE 等字符串匹配指标，judge 模型能理解语义、判断引用是否到位、识别捏造内容。这是 RAGAS、G-Eval 等主流 RAG 评估框架的核心思路。
+
+**优点**：
+- 语义理解：能判断"意思对不对"，不依赖字符串相似度
+- 细粒度：可对准确性、引用、幻觉分别评分
+- 低成本：一次调用评估一条，比人工审核快 100×
+
+**局限性**：
+- judge 自身也可能出错，尤其是微妙的事实判断
+- 打分可能受 prompt 措辞影响，存在偏差（positional bias 等）
+- **建议：对得分 ≤ 2 的条目人工抽查**，核实 judge 判断是否合理
+
+### 如何用这份报告排查问题
+
+| 报告中发现 | 应该去改什么 |
+|-----------|-------------|
+| 路由误判某类问题（尤其模糊题） | `router.py` 中对应意图的 `description` 字段，或 `_JSON_PARSE_SYSTEM` 的 prompt |
+| 检索 Recall 低，且同一文档反复未命中 | `CHUNK_SIZE` 调小（当前 400），让相关条款集中在一块而不被稀释；或换 `EMBEDDING_MODE=openai` 用更高维向量 |
+| 检索命中了正确文档但回答仍然说"暂无规定" | chunk 切分位置不对，关键条款被切在两块边界；查看 `chroma_db` 里该文档的 chunk 内容 |
+| 回答引用分低（< 3） | `generate.py` 的 `build_rag_prompt` 中强化引用要求，如"每个事实点必须标注【来源：文档名第X条】" |
+| 回答幻觉分低（< 3） | `build_rag_prompt` 开头加"严禁使用参考材料之外的信息，不确定的内容请直接说没有相关规定" |

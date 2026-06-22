@@ -1,0 +1,899 @@
+{
+  "routing": {
+    "modes": {
+      "json_parse": {
+        "correct": 18,
+        "total": 19,
+        "accuracy": 0.9473684210526315,
+        "errors": [
+          {
+            "id": "A01",
+            "question": "C002客户最近逾期了，我想了解一下她现在账户的具体状态，另外逾期处理的规定是什么",
+            "expected": "查询型",
+            "got": "知识型",
+            "reason": "用户想了解客户的账户状态并询问逾期处理规定",
+            "fallback": false
+          }
+        ]
+      },
+      "tool_calling": {
+        "correct": 19,
+        "total": 19,
+        "accuracy": 1.0,
+        "errors": []
+      }
+    },
+    "per_item": [
+      {
+        "id": "K01",
+        "question": "信用卡逾期之后利息是怎么计算的？",
+        "expected": "知识型",
+        "results": {
+          "json_parse": {
+            "got_intent": "知识型",
+            "correct": true,
+            "reason": "用户询问信用卡逾期后的利息计算方式",
+            "fallback": false,
+            "elapsed_ms": 29603
+          },
+          "tool_calling": {
+            "got_intent": "知识型",
+            "correct": true,
+            "reason": "模型选择调用工具 [rag_search]",
+            "fallback": false,
+            "elapsed_ms": 26886
+          }
+        }
+      },
+      {
+        "id": "K02",
+        "question": "信用卡逾期了，滞纳金是怎么收的？",
+        "expected": "知识型",
+        "results": {
+          "json_parse": {
+            "got_intent": "知识型",
+            "correct": true,
+            "reason": "[兜底] json_parse API 调用失败：timed out",
+            "fallback": true,
+            "elapsed_ms": 30025
+          },
+          "tool_calling": {
+            "got_intent": "知识型",
+            "correct": true,
+            "reason": "模型选择调用工具 [rag_search]",
+            "fallback": false,
+            "elapsed_ms": 30541
+          }
+        }
+      },
+      {
+        "id": "K03",
+        "question": "信用卡逾期1到30天银行会怎么处理？",
+        "expected": "知识型",
+        "results": {
+          "json_parse": {
+            "got_intent": "知识型",
+            "correct": true,
+            "reason": "[兜底] json_parse API 调用失败：timed out",
+            "fallback": true,
+            "elapsed_ms": 30013
+          },
+          "tool_calling": {
+            "got_intent": "知识型",
+            "correct": true,
+            "reason": "模型选择调用工具 [rag_search]",
+            "fallback": false,
+            "elapsed_ms": 5409
+          }
+        }
+      },
+      {
+        "id": "K04",
+        "question": "信用卡欠款超过180天不还会怎样？",
+        "expected": "知识型",
+        "results": {
+          "json_parse": {
+            "got_intent": "知识型",
+            "correct": true,
+            "reason": "[兜底] json_parse API 调用失败：timed out",
+            "fallback": true,
+            "elapsed_ms": 30020
+          },
+          "tool_calling": {
+            "got_intent": "知识型",
+            "correct": true,
+            "reason": "[兜底] json_parse API 调用失败：timed out",
+            "fallback": true,
+            "elapsed_ms": 64416
+          }
+        }
+      },
+      {
+        "id": "K05",
+        "question": "申请消费贷款需要满足哪些基本条件？",
+        "expected": "知识型",
+        "results": {
+          "json_parse": {
+            "got_intent": "知识型",
+            "correct": true,
+            "reason": "用户询问的是银行消费贷款的基本条件",
+            "fallback": false,
+            "elapsed_ms": 25984
+          },
+          "tool_calling": {
+            "got_intent": "知识型",
+            "correct": true,
+            "reason": "用户询问的是银行消费贷款的基本条件",
+            "fallback": true,
+            "elapsed_ms": 6012
+          }
+        }
+      },
+      {
+        "id": "K06",
+        "question": "个人贷款可以提前还款吗？需要收违约金吗？",
+        "expected": "知识型",
+        "results": {
+          "json_parse": {
+            "got_intent": "知识型",
+            "correct": true,
+            "reason": "用户询问关于个人贷款提前还款的规定和费用问题",
+            "fallback": false,
+            "elapsed_ms": 2240
+          },
+          "tool_calling": {
+            "got_intent": "知识型",
+            "correct": true,
+            "reason": "模型选择调用工具 [rag_search]",
+            "fallback": false,
+            "elapsed_ms": 1749
+          }
+        }
+      },
+      {
+        "id": "K07",
+        "question": "理财产品R3风险等级是什么意思？适合哪类投资者？",
+        "expected": "知识型",
+        "results": {
+          "json_parse": {
+            "got_intent": "知识型",
+            "correct": true,
+            "reason": "用户询问关于理财产品的风险等级及相关信息",
+            "fallback": false,
+            "elapsed_ms": 2433
+          },
+          "tool_calling": {
+            "got_intent": "知识型",
+            "correct": true,
+            "reason": "用户询问关于理财产品的风险等级及相关信息",
+            "fallback": true,
+            "elapsed_ms": 3148
+          }
+        }
+      },
+      {
+        "id": "K08",
+        "question": "哪些客户不能购买高风险理财产品？",
+        "expected": "知识型",
+        "results": {
+          "json_parse": {
+            "got_intent": "知识型",
+            "correct": true,
+            "reason": "询问银行规定",
+            "fallback": false,
+            "elapsed_ms": 1522
+          },
+          "tool_calling": {
+            "got_intent": "知识型",
+            "correct": true,
+            "reason": "模型选择调用工具 [rag_search]",
+            "fallback": false,
+            "elapsed_ms": 1948
+          }
+        }
+      },
+      {
+        "id": "K09",
+        "question": "征信报告短期内被多家机构查询，会影响贷款申请吗？",
+        "expected": "知识型",
+        "results": {
+          "json_parse": {
+            "got_intent": "知识型",
+            "correct": true,
+            "reason": "用户询问关于征信报告频繁查询对贷款申请的影响",
+            "fallback": false,
+            "elapsed_ms": 2081
+          },
+          "tool_calling": {
+            "got_intent": "知识型",
+            "correct": true,
+            "reason": "模型选择调用工具 [rag_search]",
+            "fallback": false,
+            "elapsed_ms": 2058
+          }
+        }
+      },
+      {
+        "id": "K10",
+        "question": "发现自己的征信报告有错误，申请异议之后多久能有结果？",
+        "expected": "知识型",
+        "results": {
+          "json_parse": {
+            "got_intent": "知识型",
+            "correct": true,
+            "reason": "用户询问关于征信报告异议处理的时间问题",
+            "fallback": false,
+            "elapsed_ms": 1873
+          },
+          "tool_calling": {
+            "got_intent": "知识型",
+            "correct": true,
+            "reason": "模型选择调用工具 [rag_search]",
+            "fallback": false,
+            "elapsed_ms": 2223
+          }
+        }
+      },
+      {
+        "id": "K11",
+        "question": "客户向银行投诉，普通投诉一般多少个工作日内会回复？",
+        "expected": "知识型",
+        "results": {
+          "json_parse": {
+            "got_intent": "知识型",
+            "correct": true,
+            "reason": "用户询问关于银行处理投诉的时间规定",
+            "fallback": false,
+            "elapsed_ms": 1836
+          },
+          "tool_calling": {
+            "got_intent": "知识型",
+            "correct": true,
+            "reason": "用户询问关于银行处理投诉的时间规定",
+            "fallback": true,
+            "elapsed_ms": 2757
+          }
+        }
+      },
+      {
+        "id": "K12",
+        "question": "什么情况下客户投诉会被升级到上级部门处理？",
+        "expected": "知识型",
+        "results": {
+          "json_parse": {
+            "got_intent": "知识型",
+            "correct": true,
+            "reason": "用户询问的是关于客户投诉升级的条件",
+            "fallback": false,
+            "elapsed_ms": 1977
+          },
+          "tool_calling": {
+            "got_intent": "知识型",
+            "correct": true,
+            "reason": "模型选择调用工具 [rag_search]",
+            "fallback": false,
+            "elapsed_ms": 2070
+          }
+        }
+      },
+      {
+        "id": "Q01",
+        "question": "帮我查一下C001客户的账户情况",
+        "expected": "查询型",
+        "results": {
+          "json_parse": {
+            "got_intent": "查询型",
+            "correct": true,
+            "reason": "用户请求查询特定客户账户信息",
+            "fallback": false,
+            "elapsed_ms": 2361
+          },
+          "tool_calling": {
+            "got_intent": "查询型",
+            "correct": true,
+            "reason": "模型选择调用工具 [query_customer]",
+            "fallback": false,
+            "elapsed_ms": 1744
+          }
+        }
+      },
+      {
+        "id": "Q02",
+        "question": "C002这个客户现在逾期了多少天了？",
+        "expected": "查询型",
+        "results": {
+          "json_parse": {
+            "got_intent": "查询型",
+            "correct": true,
+            "reason": "询问特定客户的账户逾期天数",
+            "fallback": false,
+            "elapsed_ms": 2237
+          },
+          "tool_calling": {
+            "got_intent": "查询型",
+            "correct": true,
+            "reason": "模型选择调用工具 [query_customer]",
+            "fallback": false,
+            "elapsed_ms": 1788
+          }
+        }
+      },
+      {
+        "id": "Q03",
+        "question": "查询一下C003客户目前的可用贷款额度",
+        "expected": "查询型",
+        "results": {
+          "json_parse": {
+            "got_intent": "查询型",
+            "correct": true,
+            "reason": "用户请求查询特定客户的账户信息",
+            "fallback": false,
+            "elapsed_ms": 2226
+          },
+          "tool_calling": {
+            "got_intent": "查询型",
+            "correct": true,
+            "reason": "模型选择调用工具 [query_customer]",
+            "fallback": false,
+            "elapsed_ms": 1848
+          }
+        }
+      },
+      {
+        "id": "O01",
+        "question": "C002客户逾期了45天，帮我提交一个逾期罚息减免申请",
+        "expected": "操作型",
+        "results": {
+          "json_parse": {
+            "got_intent": "操作型",
+            "correct": true,
+            "reason": "用户请求为特定客户提交逾期罚息减免申请",
+            "fallback": false,
+            "elapsed_ms": 3406
+          },
+          "tool_calling": {
+            "got_intent": "操作型",
+            "correct": true,
+            "reason": "模型选择调用工具 [submit_operation]",
+            "fallback": false,
+            "elapsed_ms": 3521
+          }
+        }
+      },
+      {
+        "id": "O02",
+        "question": "C004信用卡额度快用完了，她申请提高额度，请帮我提交申请",
+        "expected": "操作型",
+        "results": {
+          "json_parse": {
+            "got_intent": "操作型",
+            "correct": true,
+            "reason": "用户请求帮助提交信用卡提额申请",
+            "fallback": false,
+            "elapsed_ms": 3411
+          },
+          "tool_calling": {
+            "got_intent": "操作型",
+            "correct": true,
+            "reason": "模型选择调用工具 [submit_operation]",
+            "fallback": false,
+            "elapsed_ms": 3572
+          }
+        }
+      },
+      {
+        "id": "A01",
+        "question": "C002客户最近逾期了，我想了解一下她现在账户的具体状态，另外逾期处理的规定是什么",
+        "expected": "查询型",
+        "results": {
+          "json_parse": {
+            "got_intent": "知识型",
+            "correct": false,
+            "reason": "用户想了解客户的账户状态并询问逾期处理规定",
+            "fallback": false,
+            "elapsed_ms": 2588
+          },
+          "tool_calling": {
+            "got_intent": "查询型",
+            "correct": true,
+            "reason": "模型选择调用工具 [query_customer]",
+            "fallback": false,
+            "elapsed_ms": 3258
+          }
+        }
+      },
+      {
+        "id": "A02",
+        "question": "我行最近给好几个客户做了征信查询，有客户反映担心影响贷款审批，请问按规定我们应该怎么处理这种情况？",
+        "expected": "知识型",
+        "results": {
+          "json_parse": {
+            "got_intent": "知识型",
+            "correct": true,
+            "reason": "用户询问关于银行规定的问题",
+            "fallback": false,
+            "elapsed_ms": 1840
+          },
+          "tool_calling": {
+            "got_intent": "知识型",
+            "correct": true,
+            "reason": "模型选择调用工具 [rag_search]",
+            "fallback": false,
+            "elapsed_ms": 1944
+          }
+        }
+      }
+    ]
+  },
+  "retrieval": {
+    "top_k": 3,
+    "total": 13,
+    "hits": 12,
+    "recall_at_k": 0.9230769230769231,
+    "details": [
+      {
+        "id": "K01",
+        "question": "信用卡逾期之后利息是怎么计算的？",
+        "expected_doc": "信用卡逾期处理规定",
+        "hit": false,
+        "retrieved_docs": [
+          {
+            "doc_name": "个人贷款产品说明",
+            "score": 0.6677
+          },
+          {
+            "doc_name": "个人贷款产品说明",
+            "score": 0.6599
+          },
+          {
+            "doc_name": "个人贷款产品说明",
+            "score": 0.6423
+          }
+        ],
+        "top1_score": 0.6677
+      },
+      {
+        "id": "K02",
+        "question": "信用卡逾期了，滞纳金是怎么收的？",
+        "expected_doc": "信用卡逾期处理规定",
+        "hit": true,
+        "retrieved_docs": [
+          {
+            "doc_name": "信用卡逾期处理规定",
+            "score": 0.617
+          },
+          {
+            "doc_name": "个人贷款产品说明",
+            "score": 0.5783
+          },
+          {
+            "doc_name": "信用卡逾期处理规定",
+            "score": 0.5752
+          }
+        ],
+        "top1_score": 0.617
+      },
+      {
+        "id": "K03",
+        "question": "信用卡逾期1到30天银行会怎么处理？",
+        "expected_doc": "信用卡逾期处理规定",
+        "hit": true,
+        "retrieved_docs": [
+          {
+            "doc_name": "信用卡逾期处理规定",
+            "score": 0.7213
+          },
+          {
+            "doc_name": "个人贷款产品说明",
+            "score": 0.6731
+          },
+          {
+            "doc_name": "个人贷款产品说明",
+            "score": 0.6345
+          }
+        ],
+        "top1_score": 0.7213
+      },
+      {
+        "id": "K04",
+        "question": "信用卡欠款超过180天不还会怎样？",
+        "expected_doc": "信用卡逾期处理规定",
+        "hit": true,
+        "retrieved_docs": [
+          {
+            "doc_name": "信用卡逾期处理规定",
+            "score": 0.6564
+          },
+          {
+            "doc_name": "个人贷款产品说明",
+            "score": 0.6317
+          },
+          {
+            "doc_name": "信用卡逾期处理规定",
+            "score": 0.6142
+          }
+        ],
+        "top1_score": 0.6564
+      },
+      {
+        "id": "K05",
+        "question": "申请消费贷款需要满足哪些基本条件？",
+        "expected_doc": "个人贷款产品说明",
+        "hit": true,
+        "retrieved_docs": [
+          {
+            "doc_name": "个人贷款产品说明",
+            "score": 0.6904
+          },
+          {
+            "doc_name": "个人贷款产品说明",
+            "score": 0.6449
+          },
+          {
+            "doc_name": "个人征信查询规定",
+            "score": 0.6327
+          }
+        ],
+        "top1_score": 0.6904
+      },
+      {
+        "id": "K06",
+        "question": "个人贷款可以提前还款吗？需要收违约金吗？",
+        "expected_doc": "个人贷款产品说明",
+        "hit": true,
+        "retrieved_docs": [
+          {
+            "doc_name": "个人贷款产品说明",
+            "score": 0.7202
+          },
+          {
+            "doc_name": "个人贷款产品说明",
+            "score": 0.7179
+          },
+          {
+            "doc_name": "个人贷款产品说明",
+            "score": 0.7007
+          }
+        ],
+        "top1_score": 0.7202
+      },
+      {
+        "id": "K07",
+        "question": "理财产品R3风险等级是什么意思？适合哪类投资者？",
+        "expected_doc": "理财产品风险揭示书",
+        "hit": true,
+        "retrieved_docs": [
+          {
+            "doc_name": "理财产品风险揭示书",
+            "score": 0.7627
+          },
+          {
+            "doc_name": "理财产品风险揭示书",
+            "score": 0.6391
+          },
+          {
+            "doc_name": "理财产品风险揭示书",
+            "score": 0.6246
+          }
+        ],
+        "top1_score": 0.7627
+      },
+      {
+        "id": "K08",
+        "question": "哪些客户不能购买高风险理财产品？",
+        "expected_doc": "理财产品风险揭示书",
+        "hit": true,
+        "retrieved_docs": [
+          {
+            "doc_name": "理财产品风险揭示书",
+            "score": 0.6409
+          },
+          {
+            "doc_name": "理财产品风险揭示书",
+            "score": 0.6254
+          },
+          {
+            "doc_name": "理财产品风险揭示书",
+            "score": 0.6197
+          }
+        ],
+        "top1_score": 0.6409
+      },
+      {
+        "id": "K09",
+        "question": "征信报告短期内被多家机构查询，会影响贷款申请吗？",
+        "expected_doc": "个人征信查询规定",
+        "hit": true,
+        "retrieved_docs": [
+          {
+            "doc_name": "个人征信查询规定",
+            "score": 0.7004
+          },
+          {
+            "doc_name": "个人征信查询规定",
+            "score": 0.6803
+          },
+          {
+            "doc_name": "个人贷款产品说明",
+            "score": 0.6677
+          }
+        ],
+        "top1_score": 0.7004
+      },
+      {
+        "id": "K10",
+        "question": "发现自己的征信报告有错误，申请异议之后多久能有结果？",
+        "expected_doc": "个人征信查询规定",
+        "hit": true,
+        "retrieved_docs": [
+          {
+            "doc_name": "个人征信查询规定",
+            "score": 0.664
+          },
+          {
+            "doc_name": "客户投诉处理流程",
+            "score": 0.6556
+          },
+          {
+            "doc_name": "个人征信查询规定",
+            "score": 0.6497
+          }
+        ],
+        "top1_score": 0.664
+      },
+      {
+        "id": "K11",
+        "question": "客户向银行投诉，普通投诉一般多少个工作日内会回复？",
+        "expected_doc": "客户投诉处理流程",
+        "hit": true,
+        "retrieved_docs": [
+          {
+            "doc_name": "个人贷款产品说明",
+            "score": 0.6795
+          },
+          {
+            "doc_name": "客户投诉处理流程",
+            "score": 0.6704
+          },
+          {
+            "doc_name": "客户投诉处理流程",
+            "score": 0.6515
+          }
+        ],
+        "top1_score": 0.6795
+      },
+      {
+        "id": "K12",
+        "question": "什么情况下客户投诉会被升级到上级部门处理？",
+        "expected_doc": "客户投诉处理流程",
+        "hit": true,
+        "retrieved_docs": [
+          {
+            "doc_name": "客户投诉处理流程",
+            "score": 0.7002
+          },
+          {
+            "doc_name": "客户投诉处理流程",
+            "score": 0.6932
+          },
+          {
+            "doc_name": "客户投诉处理流程",
+            "score": 0.6428
+          }
+        ],
+        "top1_score": 0.7002
+      },
+      {
+        "id": "A02",
+        "question": "我行最近给好几个客户做了征信查询，有客户反映担心影响贷款审批，请问按规定我们应该怎么处理这种情况？",
+        "expected_doc": "个人征信查询规定",
+        "hit": true,
+        "retrieved_docs": [
+          {
+            "doc_name": "个人贷款产品说明",
+            "score": 0.6622
+          },
+          {
+            "doc_name": "个人征信查询规定",
+            "score": 0.6214
+          },
+          {
+            "doc_name": "个人征信查询规定",
+            "score": 0.6143
+          }
+        ],
+        "top1_score": 0.6622
+      }
+    ],
+    "misses": [
+      {
+        "id": "K01",
+        "question": "信用卡逾期之后利息是怎么计算的？",
+        "expected_doc": "信用卡逾期处理规定",
+        "retrieved_docs": [
+          {
+            "doc_name": "个人贷款产品说明",
+            "score": 0.6677
+          },
+          {
+            "doc_name": "个人贷款产品说明",
+            "score": 0.6599
+          },
+          {
+            "doc_name": "个人贷款产品说明",
+            "score": 0.6423
+          }
+        ],
+        "reason": "期望命中《信用卡逾期处理规定》，实际检索到：['个人贷款产品说明', '个人贷款产品说明', '个人贷款产品说明']"
+      }
+    ]
+  },
+  "quality": {
+    "judge_model": "gemma4-hermes:latest",
+    "total": 13,
+    "scored": 13,
+    "avg_scores": {
+      "accuracy": 3.54,
+      "citation_rate": 0.77,
+      "hallucination_rate": 0.23
+    },
+    "details": [
+      {
+        "id": "K01",
+        "question": "信用卡逾期之后利息是怎么计算的？",
+        "expected_summary": "未足额缴纳最低还款额时，自账单日起对全部应还款项按日利率0.05%（年化18%）计收利息；若已还清最低还款额但未还清全部欠款，仅对未还清部分计息并享受免息期。",
+        "actual_answer": "根据现有材料暂无相关规定。参考资料中的《个人贷款产品说明》主要针对个人贷款产品的利率、费用及还款规定等内容，并未提及关于信用卡的相关条款。因此无法直接从提供的资料中得出信用卡逾期后的利息计算方式。\n\n如需了解信用卡相关的逾期利息计算方法，请参阅信用卡的具体产品说明或相关协议文件。",
+        "scores": {
+          "accuracy_score": 1,
+          "has_citation": false,
+          "hallucination_detected": false,
+          "reason": "AI回答未能直接回答用户关于信用卡逾期利息计算的实际问题，而是以‘暂无相关规定’为由拒绝提供答案，导致信息缺失严重。"
+        }
+      },
+      {
+        "id": "K02",
+        "question": "信用卡逾期了，滞纳金是怎么收的？",
+        "expected_summary": "滞纳金按逾期未还最低还款额部分的5%收取，最低10元，最高不超过500元，同一账期只收取一次。",
+        "actual_answer": "根据《信用卡逾期处理规定》【来源：《信用卡逾期处理规定》（文件编号：CITIC-CC-OVD-2024-002）第6.3款】，对于未按时足额缴纳最低还款额的持卡人，逾期未还的部分将按照如下规则收取滞纳金：\n\n- 对于逾期未还的最低还款额部分，按最低还款额的5%收取滞纳金。\n- 滞纳金最低收取人民币10元，最高不超过欠款金额的50%。\n\n因此，信用卡持卡人如遇逾期情况，请按时足额支付最低还款额，以避免额外滞纳金的产生。",
+        "scores": {
+          "accuracy_score": 3,
+          "has_citation": true,
+          "hallucination_detected": true,
+          "reason": "回答引用了虚构的规定和文件编号，且滞纳金最高限额（50%）与标准答案（500元）存在明显冲突。"
+        }
+      },
+      {
+        "id": "K03",
+        "question": "信用卡逾期1到30天银行会怎么处理？",
+        "expected_summary": "M1轻度逾期（1-30天）：第1天系统短信提醒，第3天邮件和APP推送，第7天客服电话提醒，第15天书面催收通知，第25天可联系紧急联系人提醒（只告知欠款事实，不透露金额）。",
+        "actual_answer": "根据现有材料得知，在信用卡逾期1到30天期间的处理方式如下：\n\n- 25天内：银行可联系持卡人紧急联系人进行提醒（限告知欠款事实，不得泄露具体金额及账户信息）。【来源：《信用卡逾期处理规定》第25条】\n\n根据现有材料暂无相关规定具体描述在25天后的催收措施。但可以推断，在接下来的31-60天内会按如下方式进行处理：\n\n- 移交至信用卡催收专员负责跟进。\n- 每周至少进行一次电话催收，每次通话时间不得超过30分钟。\n- 可向持卡人提供分期还款方案，最长分期期数不超过24期。\n- 评估是否需要上报征信系统（90天逾期为征信报送节点）。【来源：《信用卡逾期处理规定》M2中度逾期处理第10.1款至第10.4款】",
+        "scores": {
+          "accuracy_score": 3,
+          "has_citation": true,
+          "hallucination_detected": true,
+          "reason": "回答在描述1-30天阶段时，虽然引用了来源，但关于25天后的内容（如移交专员、每周电话催收等）超出了用户问题和标准答案的"
+        }
+      },
+      {
+        "id": "K04",
+        "question": "信用卡欠款超过180天不还会怎样？",
+        "expected_summary": "超过180天的账款列为呆账，银行启动核销程序按不良资产处理。核销不影响银行继续追偿权利，仍可通过法律途径追收欠款。",
+        "actual_answer": "根据现有材料暂无相关规定。参考材料中的《信用卡逾期处理规定》主要针对31-90天内的逾期情况进行了详细说明，但对于超过180天的严重逾期情况未做具体规定。因此，依据提供的信息无法直接回答180天以上欠款的具体处理方式。应咨询银行相关部门获取更详细的处理流程和政策。",
+        "scores": {
+          "accuracy_score": 1,
+          "has_citation": false,
+          "hallucination_detected": false,
+          "reason": "AI回答未能直接回答用户关于超过180天欠款的问题，而是以‘暂无相关规定’为由拒绝回答，与标准答案的关键信息（呆账、核销"
+        }
+      },
+      {
+        "id": "K05",
+        "question": "申请消费贷款需要满足哪些基本条件？",
+        "expected_summary": "申请消费贷款需满足：年龄22-65周岁、有稳定收入且月收入不低于3000元、信用记录良好（近2年无连续3期以上逾期）、提供有效身份证明及收入证明材料。",
+        "actual_answer": "根据《个人贷款产品说明》第3.4款的规定，申请消费贷款需满足以下基本条件：\n- 年龄在22周岁至65周岁之间；\n- 具有稳定的收入来源，月收入不低于3000元人民币；\n- 信用记录良好，近2年内无连续3期以上逾期记录；\n- 提供有效身份证明及收入证明材料。\n\n【来源：《个人贷款产品说明》第3.4款】",
+        "scores": {
+          "accuracy_score": 5,
+          "has_citation": true,
+          "hallucination_detected": false,
+          "reason": "回答内容完全覆盖了标准答案的关键信息，且提供了明确的来源引用。"
+        }
+      },
+      {
+        "id": "K06",
+        "question": "个人贷款可以提前还款吗？需要收违约金吗？",
+        "expected_summary": "可以申请提前部分或全部还款，需提前5个工作日申请。贷款发放后6个月内提前还款收取剩余本金1%的违约金；超过6个月提前还款不收违约金。",
+        "actual_answer": "根据现有材料，《个人贷款产品说明》中有相关条款规定了提前还款的相关事宜。\n\n客户可申请提前部分或全部还款，需提前5个工作日向本行提出申请【来源：《个人贷款产品说明》第10条】。此外，关于违约金的收取情况如下：\n\n- 提前6个月以内（含）还款不收取违约金；\n- 提前超过6个月还款则须支付1%的违约金【来源：《个人贷款产品说明》开头部分】。\n\n综上所述，个人贷款可以提前还款，但需根据实际提前时间支付相应的违约金。",
+        "scores": {
+          "accuracy_score": 3,
+          "has_citation": true,
+          "hallucination_detected": false,
+          "reason": "回答结构清晰，引用了来源信息，但关于违约金的收取时间点与标准答案存在明显矛盾（标准答案是6个月内收1%，超过6个月不收；"
+        }
+      },
+      {
+        "id": "K07",
+        "question": "理财产品R3风险等级是什么意思？适合哪类投资者？",
+        "expected_summary": "R3为中等风险，产品存在一定本金损失风险，预期收益相对较高，可投资债券及部分权益类资产，适合平衡型投资者。",
+        "actual_answer": "根据《理财产品风险揭示书》（第6.3款）的说明，理财产品R3风险等级是指产品存在一定的本金损失风险，预期收益相对较高。这类产品可投资于债券及部分权益类资产，适合平衡型投资者。\n\n【来源：《理财产品风险揭示书》第三章 产品风险等级说明 第6.3款】",
+        "scores": {
+          "accuracy_score": 5,
+          "has_citation": true,
+          "hallucination_detected": false,
+          "reason": "回答内容准确、完整，完全覆盖了风险等级的定义、投资方向和适用投资者类型，并提供了具体的来源引用。"
+        }
+      },
+      {
+        "id": "K08",
+        "question": "哪些客户不能购买高风险理财产品？",
+        "expected_summary": "风险测评结果为保守型（C1）的客户、年龄超过70周岁且无法提供完全民事行为能力证明的客户、首次购买且金额超过100万元的客户不得购买R4及以上理财产品。",
+        "actual_answer": "根据现有材料暂无相关规定明确指出哪些客户不能购买高风险理财产品。但是根据材料中的要求，首次购买理财产品的客户和投资金额超过100万元的客户需要进行面签，同时购买R4及以上高风险理财产品的须在每次购买时签署确认书。\n\n这些要求表明银行对这类客户的谨慎态度，并不意味着他们被完全排除在外，只是强调了更高标准的信息披露和投资者适当性管理。因此，具体谁可以或不能购买这类产品还需根据最新的监管规定及内部风控政策来确定。",
+        "scores": {
+          "accuracy_score": 2,
+          "has_citation": false,
+          "hallucination_detected": true,
+          "reason": "AI回答未能直接回答用户关于‘哪些客户不能购买’的问题，且在缺乏明确材料支持的情况下，编造了“首次购买”和“投资金额超过"
+        }
+      },
+      {
+        "id": "K09",
+        "question": "征信报告短期内被多家机构查询，会影响贷款申请吗？",
+        "expected_summary": "30日内征信被查询超过3次存在一定风险，超过6次原则上不予受理新信贷申请。银行可将短期内被多次查询的客户列为高风险客户并拒绝申请。",
+        "actual_answer": "根据《个人征信查询规定》第6.2款，客户短期内（30日内）征信报告被多家机构查询超过3次，本行可将其列为高风险客户，并有权拒绝贷款申请。因此，若同一客户在较短时间内多次被不同机构查询其征信报告，则可能影响其向本行申请贷款。【来源：《个人征信查询规定》第6.2款】",
+        "scores": {
+          "accuracy_score": 5,
+          "has_citation": true,
+          "hallucination_detected": false,
+          "reason": "回答准确地指出了查询次数的风险点（超过3次）和影响结果，并提供了具体的条款引用支持。"
+        }
+      },
+      {
+        "id": "K10",
+        "question": "发现自己的征信报告有错误，申请异议之后多久能有结果？",
+        "expected_summary": "银行须在收到异议申请后2个工作日内确认收到，20个工作日内完成核查并书面告知结果；情况复杂可延至45个工作日，需书面说明原因。",
+        "actual_answer": "根据《个人征信查询规定》第11.2款的规定，银行须在收到异议申请后20个工作日内完成核查，并书面告知客户核查结果。【来源：《个人征信查询规定》第11条】此外，如果需要更正信息，银行会在核查确认信息存在错误的情况下，在5个工作日内向征信中心申请更正（参见该规定的第11.3款）。更正信息的具体处理时间为30个工作日后客户可查阅最新的征信报告确认结果（参见该规定的第12.1款）。",
+        "scores": {
+          "accuracy_score": 3,
+          "has_citation": true,
+          "hallucination_detected": false,
+          "reason": "回答引用了具体的规定条款，但提供的核查和更正时间（20个工作日、5个工作日、30个工作日）与标准答案的关键信息（20个工"
+        }
+      },
+      {
+        "id": "K11",
+        "question": "客户向银行投诉，普通投诉一般多少个工作日内会回复？",
+        "expected_summary": "普通投诉（需调查核实的）须在7个工作日内处理并回复；需跨部门协作的可延至15个工作日，但须提前告知客户。简单投诉可当场或1个工作日内解决。",
+        "actual_answer": "根据《客户投诉处理流程》，普通投诉一般在7个工作日内完成处理并回复。【来源：《客户投诉处理流程》第9.3款】特殊情况需跨部门协作的，可延至15个工作日，但须提前告知客户。",
+        "scores": {
+          "accuracy_score": 5,
+          "has_citation": true,
+          "hallucination_detected": false,
+          "reason": "回答准确覆盖了普通投诉（7个工作日）和特殊情况（15个工作日，需提前告知）的关键信息，且提供了引用来源。"
+        }
+      },
+      {
+        "id": "K12",
+        "question": "什么情况下客户投诉会被升级到上级部门处理？",
+        "expected_summary": "以下情形自动升级：客户对初次处理不满意、投诉金额超过10万元、涉及3人以上群体性投诉、媒体或监管部门已介入、内容涉及严重违规违法嫌疑。",
+        "actual_answer": "根据《客户投诉处理流程》第15条的规定，以下情况须自动升级至上一级处理：\n\n- 客户对初次处理结果不满意，要求升级的；【来源：《客户投诉处理流程》（检索相关度：70.0%）第15.1款】\n- 投诉金额超过10万元的；\n- 涉及群体性投诉（3人以上）的；\n- 媒体或监管部门已介入或可能介入的；\n- 投诉内容涉及严重违规违法嫌疑的。【来源：《客户投诉处理流程》第15.2款】\n\n在上级处理路径方面，具体规定为：网点/电话 → 分行客服部 → 总行消费者权益保护部 【来源：《客户投诉处理流程》（检索相关度：69.3%）第15.2款】",
+        "scores": {
+          "accuracy_score": 5,
+          "has_citation": true,
+          "hallucination_detected": false,
+          "reason": "回答内容完全覆盖了标准答案的关键信息点，并且提供了具体的流程和引用来源，准确且完整。"
+        }
+      },
+      {
+        "id": "A02",
+        "question": "我行最近给好几个客户做了征信查询，有客户反映担心影响贷款审批，请问按规定我们应该怎么处理这种情况？",
+        "expected_summary": "此为易误判题。问法中含【怎么处理】易被误判为操作型，但实质是询问征信查询频率的合规规定（第6条），正确意图为知识型，答案应包含30日内查询次数限制。",
+        "actual_answer": "根据《个人征信查询规定》的相关条款，对于频繁进行的个人征信查询，尤其是短期内被多家机构查询的情况，银行需谨慎对待。具体规范如下：\n\n1. 对同一客户同类业务（如消费贷款）在6个月内进行硬查询不超过2次。【来源：《个人征信查询规定》第6条】\n\n2. 客户短期内（30日内）征信报告被多家机构查询超过3次，本行可将其列为高风险客户，并有权拒绝贷款申请。【来源：《个人征信查询规定》第6.2款】\n\n因此，在处理多次对同一客户的征信查询时，应确保不超过上述时限与次数的要求。若在短期内查询频率过高，则可根据相关规定将客户列为潜在的高风险对象并采取相应措施。\n\n针对用户的反映情况，建议在进行多笔信贷业务前尽量评估并控制好总的调查次数和时间周期，同时考虑其他机构是否也在同一时期内进行了相似操作；对于已被视为高风险客户的申请，可适当加强审查力度或向用户提供更多的信息解释以缓解其担忧。",
+        "scores": {
+          "accuracy_score": 5,
+          "has_citation": true,
+          "hallucination_detected": false,
+          "reason": "回答准确地指出了征信查询的合规限制（30日内次数和6个月内次数），并提供了相应的处理建议，完全覆盖了标准答案的核心知识点"
+        }
+      }
+    ]
+  }
+}
